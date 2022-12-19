@@ -23,3 +23,10 @@ img_rotated = cv2.rotate(binary_thresh, cv2.ROTATE_90_CLOCKWISE)
 cv2.imshow("rotated_image",img_rotated)
 
 cv2.waitKey(0)
+
+#If you wanna apply gamma call gamaConverter function :)
+def gamaConverter(original):
+    for gamma in [1, 0.1, 0.5, 1.2, 2.2, 4, 10]:
+        gamma_corrected = np.array(255 * ((original / 255) ** gamma), dtype='uint8')
+        cv2.imshow("Gamma " + str(gamma), gamma_corrected)
+        cv2.waitKey()
